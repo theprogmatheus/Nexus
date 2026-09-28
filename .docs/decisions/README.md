@@ -22,6 +22,8 @@ Um ADR é um documento curto que captura uma decisão arquitetural significativa
 | ID | Título | Data | Status |
 | :---: | :--- | :---: | :---: |
 | [0001](0001-initial-tech-stack-bootstrap.md) | Bootstrap Tecnológico Inicial (Java 21, Spring Boot 4.1.1, Maven) | 2026-09-28 | `ACCEPTED` |
+| [0002](0002-spring-authorization-server-adoption.md) | Adoção do Spring Authorization Server como Motor de OAuth2/OIDC | 2026-09-28 | `ACCEPTED` |
+| [0003](0003-server-side-rendering-thymeleaf.md) | Adoção de Server-Side Rendering (Thymeleaf) para Telas de Autenticação | 2026-09-28 | `ACCEPTED` |
 
 ---
 

@@ -172,7 +172,7 @@ A documentação detalhada reside no diretório [`.docs/`](.docs/README.md):
 - **Protocolos**: [OAuth 2.0](.docs/protocols/oauth2.md) | [OpenID Connect](.docs/protocols/openid-connect.md) | [Tokens e Chaves JWK](.docs/protocols/tokens.md)
 - **Segurança**: [Modelo de Segurança](.docs/security/security-model.md) | [Modelo de Ameaças (STRIDE)](.docs/security/threat-model.md) | [Gestão de Segredos](.docs/security/secrets.md) | [Auditoria e Logging](.docs/security/logging.md) | [Checklist](.docs/security/security-checklist.md)
 - **Desenvolvimento & Operações**: [Setup](.docs/development/setup.md) | [Estrutura](.docs/development/project-structure.md) | [Convenções](.docs/development/conventions.md) | [Troubleshooting](.docs/development/troubleshooting.md) | [Deploy](.docs/operations/deployment.md) | [Observabilidade](.docs/operations/observability.md) | [Backup & DR](.docs/operations/backup-and-recovery.md)
-- **Decisões (ADRs)**: [Índice de ADRs](.docs/decisions/README.md) | [Template](.docs/decisions/template.md) | [ADR-0001](.docs/decisions/0001-initial-tech-stack-bootstrap.md)
+- **Decisões (ADRs)**: [Índice de ADRs](.docs/decisions/README.md) | [Template](.docs/decisions/template.md) | [ADR-0001](.docs/decisions/0001-initial-tech-stack-bootstrap.md) | [ADR-0002](.docs/decisions/0002-spring-authorization-server-adoption.md) | [ADR-0003](.docs/decisions/0003-server-side-rendering-thymeleaf.md)
 
 ---
 
@@ -201,13 +201,16 @@ O Nexus é um componente crítico de infraestrutura de autenticação.
 | **Fase do Projeto** | **Bootstrap Inicial** (`v0.0.1-SNAPSHOT`) |
 | **Estrutura Base** | Criada via Spring Initializr (Java 21, Spring Boot 4.1.1, Maven) |
 | **Camada de Identidade** | Especificada conceitualmente; entidades e serviços pendentes de implementação |
-| **Camada OAuth2/OIDC** | Diretrizes aprovadas; framework de autorização sob definição |
+| **Camada OAuth2/OIDC** | Aprovada formalmente via Spring Authorization Server ([ADR-0002](.docs/decisions/0002-spring-authorization-server-adoption.md)) |
+| **Camada de Apresentação** | Aprovada formalmente via Thymeleaf SSR ([ADR-0003](.docs/decisions/0003-server-side-rendering-thymeleaf.md)) |
 
 ---
 
 ## 14. Roadmap & Decisões Pendentes (Open Questions)
 
-- [ ] **ADR do Servidor de Autorização**: Formalizar a adoção do `spring-security-oauth2-authorization-server` no `pom.xml`.
+- [x] **ADR do Servidor de Autorização**: Formalizada a adoção do Spring Authorization Server ([ADR-0002](.docs/decisions/0002-spring-authorization-server-adoption.md)).
+- [x] **ADR da Camada de Apresentação (UI)**: Formalizada a adoção de Thymeleaf SSR ([ADR-0003](.docs/decisions/0003-server-side-rendering-thymeleaf.md)).
+- [ ] **Inclusão de Dependências no `pom.xml`**: Adicionar `spring-security-oauth2-authorization-server` e `spring-boot-starter-thymeleaf`.
 - [ ] **Ferramenta de Migração de Banco**: Definir entre Flyway e Liquibase para versionamento de schema.
 - [ ] **Esquema de Senhas**: Homologar `Argon2id` como encoder padrão do Spring Security.
 - [ ] **Implementação das Entidades de Identidade**: Criar `NexusUser` e repositórios JPA.
